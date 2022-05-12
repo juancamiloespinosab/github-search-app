@@ -6,7 +6,7 @@
     "baseUrl": "src",
     "paths": {
       "@core/*": ["app/core/*"],
-      "@search/*": ["app/search/*"],
+      "@modules/*": ["app/modules/*"],
       "@shared/*": ["app/shared/*"],
     },
     "jsx": "preserve",
