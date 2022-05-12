@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PrecisionLevelPipe } from './pipes/precision-level.pipe';
 import { MaterialModule } from './material/material.module';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 @NgModule({
@@ -15,12 +17,14 @@ import { MaterialModule } from './material/material.module';
     CommonModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   exports: [
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ]
 })
 export class SharedModule { }

@@ -15,7 +15,7 @@ export class RequestService {
   ) { }
 
   async searchUsers(query: UsersRequestParameters) {
-    let users: User[] = await this.searchService.getUsers(query);
-    this.sharingService.searchingObservableData = users;
+    // let users: User[] = await this.searchService.getUsers(query);    
+    // this.sharingService.searchingObservableData = users;
   }
 }

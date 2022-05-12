@@ -1,1 +1,5 @@
-<p *ngFor="let user of users$ | async ">{{ user.login }}</p>
+<molecule-card *ngFor="let user of users$ | async" [data]="user"></molecule-card>
+<ng-container style="min-height: 400px; position: relative;">
+    <ngx-spinner bdColor="rgba(0,0,0,0.5)" type="ball-scale-multiple" size="large" name="grid-spinner">
+    </ngx-spinner>
+</ng-container>

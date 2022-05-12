@@ -27,8 +27,8 @@ export class InputComponent implements OnInit {
     this.inputForm.valueChanges
       .pipe(
         debounceTime(500),
-        filter((query: string) => query !== '' && query.length >= 3),
-        tap((query: string) => this.requestService.searchUsers({ q: query }))
+        filter((query: string) => query.length >= 3),
+        tap((query: string) => this.requestService.searchUsers({ q: encodeURIComponent(query) }))
       )
       .subscribe();
   }

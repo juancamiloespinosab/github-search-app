@@ -11,7 +11,6 @@ import { SpinnerComponent } from './components/atoms/spinner/spinner.component';
 import { CardComponent } from './components/molecules/card/card.component';
 import { SearchBoxComponent } from './components/molecules/search-box/search-box.component';
 import { SearchComponent } from './search.component';
-import { NgxContextModule } from 'ngx-context';
 import { GridComponent } from './components/organisms/grid/grid.component';
 import { SharedModule } from '@shared/shared.module';
 import { MainTitleComponent } from './components/atoms/main-title/main-title.component';
@@ -35,7 +34,6 @@ import { MainTitleComponent } from './components/atoms/main-title/main-title.com
   ],
   imports: [
     CommonModule,
-    NgxContextModule,
     SharedModule
   ]
 })
