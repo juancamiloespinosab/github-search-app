@@ -8,18 +8,10 @@ import { SearchService } from '@core/services/api/search.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(
-    private search: SearchService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getUsers()
-  }
 
-  async getUsers() {
-    let res = await this.search.getUsers({
-      q: 'juancamilo'
-    })
   }
 
 }

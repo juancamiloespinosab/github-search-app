@@ -1,1 +1,1 @@
-<p>grid works!</p>
+<p *ngFor="let user of users$ | async ">{{ user.login }}</p>

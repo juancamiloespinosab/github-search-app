@@ -12,7 +12,7 @@ import { lastValueFrom, map } from 'rxjs';
 })
 export class SearchService {
 
-  githubApi = environment.githubSearchApi;
+  private githubApi = environment.githubSearchApi;
 
   constructor(
     private httpClient: HttpClient,
