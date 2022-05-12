@@ -1,0 +1,9 @@
+.main-title {
+    font-size: 80px;
+
+    transition: font-size var(--transitions-time);
+}
+
+.minimized {
+    font-size: 8px;
+}

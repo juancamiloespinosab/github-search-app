@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'molecule-avatar',
+  selector: 'atom-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.css']
 })

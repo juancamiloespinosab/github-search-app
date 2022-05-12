@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LevelPrecisionPipe } from './pipes/level-precision.pipe';
+import { PrecisionLevelPipe } from './pipes/precision-level.pipe';
+import { MaterialModule } from './material/material.module';
 
 
 
 @NgModule({
   declarations: [
-    LevelPrecisionPipe
+    PrecisionLevelPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
+  ],
+  exports: [
+    MaterialModule
   ]
 })
 export class SharedModule { }

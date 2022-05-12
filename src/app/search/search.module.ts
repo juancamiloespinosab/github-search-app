@@ -4,15 +4,17 @@ import { MainComponent } from './pages/main/main.component';
 import { InputComponent } from './components/atoms/input/input.component';
 import { IconComponent } from './components/atoms/icon/icon.component';
 import { TextComponent } from './components/atoms/text/text.component';
-import { ImageComponent } from './components/atoms/image/image.component';
 import { ButtonComponent } from './components/atoms/button/button.component';
-import { AvatarComponent } from './components/molecules/avatar/avatar.component';
+import { AvatarComponent } from './components/atoms/avatar/avatar.component';
 import { ChipComponent } from './components/molecules/chip/chip.component';
 import { SpinnerComponent } from './components/atoms/spinner/spinner.component';
-import { CardComponent } from './components/organisms/card/card.component';
-import { SearchBoxComponent } from './components/organisms/search-box/search-box.component';
+import { CardComponent } from './components/molecules/card/card.component';
+import { SearchBoxComponent } from './components/molecules/search-box/search-box.component';
 import { SearchComponent } from './search.component';
-
+import { NgxContextModule } from 'ngx-context';
+import { GridComponent } from './components/organisms/grid/grid.component';
+import { SharedModule } from '../shared/shared.module';
+import { MainTitleComponent } from './components/atoms/main-title/main-title.component';
 
 
 @NgModule({
@@ -22,16 +24,19 @@ import { SearchComponent } from './search.component';
     InputComponent,
     IconComponent,
     TextComponent,
-    ImageComponent,
     ButtonComponent,
     AvatarComponent,
     ChipComponent,
     SpinnerComponent,
     CardComponent,
     SearchBoxComponent,
+    GridComponent,
+    MainTitleComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxContextModule,
+    SharedModule
   ]
 })
 export class SearchModule { }
