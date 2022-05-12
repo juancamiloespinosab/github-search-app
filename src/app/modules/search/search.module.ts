@@ -13,7 +13,7 @@ import { SearchBoxComponent } from './components/molecules/search-box/search-box
 import { SearchComponent } from './search.component';
 import { NgxContextModule } from 'ngx-context';
 import { GridComponent } from './components/organisms/grid/grid.component';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { MainTitleComponent } from './components/atoms/main-title/main-title.component';
 
 
