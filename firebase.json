@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "./dist/github-search-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
