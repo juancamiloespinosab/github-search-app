@@ -44,7 +44,11 @@
     } 
 
     .search-section--on-search {
-        height: 20vh;
+        height: 180px;
+    }
+
+    .grid-section {
+        padding-top: 180px;
     }
     
 }
