@@ -28,15 +28,17 @@ export class MainComponent implements OnInit {
 
   }
 
+  scrollToTop(element: ElementRef) {
+    element.nativeElement.scrollTop = 0;
+  }
+
   ngAfterViewInit() {
-    this.usersSubscription = this.users$.subscribe(data => {
-      this.scrollContainer.nativeElement.scrollTop = 0;
+    this.usersSubscription = this.users$.subscribe(() => {
+      this.scrollToTop(this.scrollContainer);
     })
   }
 
-  ngOnDestroy() {
-    console.log(333);
-    
+  ngOnDestroy() {   
     this.usersSubscription.unsubscribe();
   }
 
