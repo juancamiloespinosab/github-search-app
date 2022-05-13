@@ -4,6 +4,10 @@ body, h1 {
     margin: 0 !important;
 }
 
+body {
+    overflow: hidden;
+}
+
 :root {
     --transitions-time: .8s;
     --primary-color: #3f51b5;

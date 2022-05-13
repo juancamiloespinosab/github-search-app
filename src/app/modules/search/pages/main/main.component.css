@@ -27,7 +27,7 @@
 .grid-section {
     padding-top: 25vh;
     height: 0vh;
-    overflow-y: scroll;
+    overflow-y: hidden;
     z-index: 10;
 
     transition: height var(--transitions-time);
@@ -35,6 +35,7 @@
 
 .grid-section--on-search {
     height: 75vh;
+    overflow-y: scroll;
 }
 
 @media (max-width: 600px) {
