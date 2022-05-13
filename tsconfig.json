@@ -8,6 +8,7 @@
       "@core/*": ["app/core/*"],
       "@modules/*": ["app/modules/*"],
       "@shared/*": ["app/shared/*"],
+      "@assets/*": ["app/assets/*"],
     },
     "jsx": "preserve",
     "outDir": "./dist/out-tsc",

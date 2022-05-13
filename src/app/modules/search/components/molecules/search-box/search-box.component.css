@@ -1,3 +1,11 @@
-.form {
-    
+.search-box-container {
+    width: 30vw;
+}
+
+@media (max-width: 600px) {
+    .search-box-container {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'atom-avatar',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./avatar.component.css']
 })
 export class AvatarComponent implements OnInit {
+
+  @Input() imageUrl: string = '@assets/placeholder.png'
+  imageLoaded: boolean = false;
 
   constructor() { }
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { RandomService } from '@core/helpers/random.service';
 import { Item, UsersResponse } from '@core/interfaces/api-response/UsersResponse';
 import { User } from '@core/interfaces/models/User';
-import { UsersRequestParameters } from '@core/interfaces/request-parameters/UsersRequestParameters';
+import { UsersRequestParameters } from '@core/interfaces/api-request/UsersRequestParameters';
 import { environment } from 'environments/environment';
 import { lastValueFrom, map } from 'rxjs';
 

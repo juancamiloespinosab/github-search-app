@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SearchBoxComponent implements OnInit {
 
   viewTexts = {
-    label: 'Ingrese el nombre de un usuario',
-    placeholder: 'username'
+    label: 'Enter a username',
+    placeholder: 'Ex. goku'
   }
 
   constructor() { }

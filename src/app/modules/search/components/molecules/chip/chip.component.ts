@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'molecule-chip',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chip.component.css']
 })
 export class ChipComponent implements OnInit {
+
+  @Input() label: string = 'Chip';
+  @Input() icon!: string;
+  @Input() color: string = '';
 
   constructor() { }
 

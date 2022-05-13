@@ -1,7 +1,11 @@
 .input-container {
     width: 100%;
+    font-size: 18px;
 }
 
-.input {
-    
+@media (max-width: 600px) {
+    .input-container {
+        width: 95vw;
+        font-size: 18px;
+    } 
 }

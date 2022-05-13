@@ -1,5 +1,7 @@
 .main-title {
     font-size: 50px;
+    text-align: center;
+    color: var(--primary-color);
 
     transition: font-size var(--transitions-time);
 }

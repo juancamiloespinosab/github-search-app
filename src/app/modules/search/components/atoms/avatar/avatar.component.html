@@ -1,1 +1,2 @@
-<p>avatar works!</p>
+<!-- <img class="image" (load)="" mat-card-avatar [src]="imageUrl" alt="avatar" loading="lazy"> -->
+<img #img class="image" [ngClass]="{ 'image-loaded': imageLoaded }" mat-card-avatar (load)="imageLoaded = true" [src]="imageUrl" alt="avatar" />

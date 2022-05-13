@@ -1,1 +1,8 @@
-<p>chip works!</p>
+<mat-chip-list class="mat-chip-list-stacked">
+    <mat-chip [color]="color" [selected]="color != ''" class="chip">
+        <mat-chip-avatar *ngIf="icon">
+            <mat-icon>{{ icon }}</mat-icon>
+        </mat-chip-avatar>
+        {{ label }}
+    </mat-chip>
+</mat-chip-list>

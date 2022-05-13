@@ -1,4 +1,19 @@
-<p>{{ data.avatar_url }}</p>
+<!-- <p>{{ data.avatar_url }}</p>
 <p>{{ data.login }}</p>
 <p>{{ data.type }}</p>
-<p>{{ data.score }}</p>
+<p>{{ data.score }}</p> -->
+
+<mat-card class="card-container">
+    <div class="avatar-container">
+        <atom-avatar (click)="goToPerfil()" [matTooltip]="viewTexts.visitProfile" [imageUrl]="data.avatar_url"></atom-avatar>
+    </div>
+    <div class="information-container">
+        <mat-card-title class="card-title">{{ data.login }}</mat-card-title>
+
+            <molecule-chip [icon]="data.type == 'User' ? 'person' : 'work'" [label]="data.type"></molecule-chip>
+            <molecule-chip [label]="'Score: ' + data.score"></molecule-chip>
+
+        <molecule-chip [color]="'primary'" class="precision-level" [label]="'Precision Level: ' + (data.score | precision)"></molecule-chip>
+
+    </div>
+</mat-card>

@@ -24,7 +24,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    PrecisionLevelPipe
   ]
 })
 export class SharedModule { }

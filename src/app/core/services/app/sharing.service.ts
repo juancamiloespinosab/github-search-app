@@ -7,20 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SharingService {
 
-  private searchingObservablePrivate: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([
-    {
-      avatar_url: 'string',
-      login: 'uno',
-      type: 'User',
-      score: 0.5
-    },
-    {
-      avatar_url: 'string',
-      login: 'dos',
-      type: 'User',
-      score: 0.5
-    }
-  ])
+  private searchingObservablePrivate: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([])
 
   constructor() { }
 

@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body, h1 {
+    margin: 0 !important;
+}
 
 :root {
-    --transitions-time: .8s
+    --transitions-time: .8s;
+    --primary-color: #3f51b5;
 }
 
 .flex-center {
@@ -13,3 +14,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: center;
     align-items: center;
 }
+
+.flex-top {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+

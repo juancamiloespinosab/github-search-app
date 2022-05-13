@@ -11,7 +11,7 @@ export const environment = {
       users: "users"
     },
     pagination: {
-      per_page: 20,
+      per_page: 100,
       page: 1
     }
   }
