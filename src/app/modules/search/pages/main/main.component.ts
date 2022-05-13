@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { User } from '@core/interfaces/models/User';
-import { SearchService } from '@core/services/api/search.service';
 import { SharingService } from '@core/services/app/sharing.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'page-main',
@@ -11,8 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class MainComponent implements OnInit {
 
-  users$: Observable<User[]>;
   title: string = 'GitHub Search';
+
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
+  users$: Observable<User[]>;
+  usersSubscription!: Subscription;
 
   constructor(
     public sharingService: SharingService
@@ -22,6 +25,19 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+  }
+
+  ngAfterViewInit() {
+    this.usersSubscription = this.users$.subscribe(data => {
+      this.scrollContainer.nativeElement.scrollTop = 0;
+    })
+  }
+
+  ngOnDestroy() {
+    console.log(333);
+    
+    this.usersSubscription.unsubscribe();
   }
 
 }

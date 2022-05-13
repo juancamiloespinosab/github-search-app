@@ -21,6 +21,12 @@ body, h1 {
     align-items: flex-start;
 }
 
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;

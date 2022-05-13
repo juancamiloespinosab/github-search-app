@@ -1,11 +1,11 @@
 <div class="page-container">
 
-    <div class="search-section flex-center" [ngClass]="{ 'search-section--on-search': (users$ | async)?.length != 0}">
+    <div class="search-section" [ngClass]="{ 'search-section--on-search': (users$ | async)?.length != 0}">
         <atom-main-title>{{ title }}</atom-main-title>
         <molecule-search-box></molecule-search-box>
     </div>
 
-    <div class="grid-section flex-top" [ngClass]="{ 'grid-section--on-search': (users$ | async)?.length != 0}">
+    <div #scrollContainer class="grid-section flex-top" [ngClass]="{ 'grid-section--on-search': (users$ | async)?.length != 0}">
         <organism-grid></organism-grid>
     </div>
 
