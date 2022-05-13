@@ -28,8 +28,8 @@ export class InputComponent implements OnInit {
       .pipe(
         debounceTime(500),
         filter((query: string) => query?.length >= 3),
-        tap( async (query: string) => {
-          await this.requestService.searchUsers({ q: encodeURIComponent(query) })
+        tap(async (query: string) => {
+          await this.requestService.searchUsers(encodeURIComponent(query))
           this.clearQuery();
         })
       )
