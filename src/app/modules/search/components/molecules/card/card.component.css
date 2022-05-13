@@ -32,17 +32,29 @@
 
 .card-title {
     max-width: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
     height: 25px;
     margin: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: var(--primary-color);
+
+    cursor: pointer;
 }
 
 .chips-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
+}
+
+.card-title {
+    transform: translateX(-5%);
+}
+
+.precision-level {
+    transform: translateX(-5%);
 }
 
 @media (max-width: 600px) {

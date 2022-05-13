@@ -21,7 +21,7 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToPerfil() {
+  goToProfile() {
     window.open(environment.githubUrl + this.data.login, "_blank");
   }
 
