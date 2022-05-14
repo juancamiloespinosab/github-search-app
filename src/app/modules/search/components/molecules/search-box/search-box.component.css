@@ -5,7 +5,8 @@
 @media (max-width: 600px) {
     .search-box-container {
         width: 100vw;
-        display: flex;
+        display: grid;
+
         justify-content: center;
     }
 }
