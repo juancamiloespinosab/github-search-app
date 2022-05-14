@@ -4,6 +4,8 @@ import { UsersRequestParameters } from '@core/interfaces/api-request/UsersReques
 import { SearchService } from '@core/services/api/search.service';
 import { SharingService } from '@core/services/app/sharing.service';
 import { environment } from 'environments/environment';
+import { UsersResponse } from '@core/interfaces/api-response/UsersResponse';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +25,24 @@ export class RequestService {
     }
   }
 
-  async searchUsers(query: string) {
+  async searchUsers(query: string): Promise<number> {
 
-    let users: User[] = await this.searchService.getUsers({
-      q: query,
-      per_page: this.paginationState.searchUsers.per_page,
-      page: this.paginationState.searchUsers.page
-    });
+    try {
+      const users$ = this.searchService.getUsers({
+        q: query,
+        per_page: this.paginationState.searchUsers.per_page,
+        page: this.paginationState.searchUsers.page
+      })
 
-    this.sharingService.searchingObservableData = users;
+      const users = await lastValueFrom(users$)
+      this.sharingService.searchingObservableData = users;
+      return users.length;
+
+    } catch (error) {
+      this.sharingService.searchingObservableData = [];
+      throw error;
+
+    }
+
   }
 }

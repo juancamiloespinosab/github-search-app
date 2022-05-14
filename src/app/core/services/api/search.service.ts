@@ -1,11 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RandomService } from '@core/helpers/random.service';
-import { Item, UsersResponse } from '@core/interfaces/api-response/UsersResponse';
+import { UsersResponse } from '@core/interfaces/api-response/UsersResponse';
 import { User } from '@core/interfaces/models/User';
 import { UsersRequestParameters } from '@core/interfaces/api-request/UsersRequestParameters';
 import { environment } from 'environments/environment';
-import { lastValueFrom, map } from 'rxjs';
+import { Observable, pluck } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class SearchService {
     private randomService: RandomService
   ) { }
 
-  async getUsers(requestParameters: UsersRequestParameters): Promise<User[]> {
+  getUsers(requestParameters: UsersRequestParameters): Observable<User[]> {
     try {
       let queryParameters = new HttpParams();
 
@@ -33,24 +33,12 @@ export class SearchService {
 
       const url = this.githubApi.baseUrl + this.githubApi.paths.users
 
-      const users$ = this.httpClient.get<UsersResponse>(url, { params: queryParameters }).pipe(
-        map((response: UsersResponse): User[] => {
-          return response.items.map((item: Item): User => {
-            return {
-              avatar_url: item.avatar_url,
-              login: item.login,
-              type: item.type,
-              // score: item.score
-              score: this.randomService.randomNumberFromInterval(0.1,1)
-            }
-          })
-        })
-      );
+      return this.httpClient.get<UsersResponse>(url, { params: queryParameters }).pipe(
+        pluck('items')
+      )
 
-      return await lastValueFrom(users$);
-
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      throw error;
     }
   }
 }

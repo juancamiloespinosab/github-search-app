@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '@core/interfaces/models/User';
 import { SharingService } from '@core/services/app/sharing.service';
 import { Observable } from 'rxjs';
@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class GridComponent implements OnInit {
 
-  @ViewChild('container') container!: ElementRef;
   users$: Observable<User[]>;
 
   constructor(

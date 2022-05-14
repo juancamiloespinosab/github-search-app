@@ -1,3 +1,4 @@
 <div class="search-box-container">
-  <atom-input [label]="viewTexts.label" [placeholder]="viewTexts.placeholder"></atom-input>
+  <atom-input (inputChangesEvent)="search($event)" [label]="viewTexts.label" [placeholder]="viewTexts.placeholder"></atom-input>
+  <mat-error *ngIf="error != ''">{{ error }}</mat-error>
 </div>

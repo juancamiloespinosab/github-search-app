@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { RequestService } from '@modules/search/services/request.service';
 import { debounceTime, filter, map, Subscription, tap } from 'rxjs';
+
+const DEBOUNCE_TIME = 500;
+const MIN_CHARS_TO_EMIT_VALUE = 3;
 
 @Component({
   selector: 'atom-input',
@@ -12,13 +14,14 @@ export class InputComponent implements OnInit {
 
   @Input() label: string = '';
   @Input() placeholder: string = '';
+  @Output() inputChangesEvent: EventEmitter<string> = new EventEmitter<string>();
 
   inputForm = new FormControl('');
   inputChangeSubscription!: Subscription
-  
+
 
   constructor(
-    private requestService: RequestService
+
   ) { }
 
   ngOnInit(): void {
@@ -28,21 +31,20 @@ export class InputComponent implements OnInit {
   onInputChange() {
     this.inputChangeSubscription = this.inputForm.valueChanges
       .pipe(
-        debounceTime(500),
-        filter((query: string) => query?.length >= 3),
-        tap(async (query: string) => {
-          await this.requestService.searchUsers(encodeURIComponent(query))
-          this.clearQuery();
+        debounceTime(DEBOUNCE_TIME),
+        filter((value: string) => value?.length >= MIN_CHARS_TO_EMIT_VALUE),
+        tap(async (value: string) => {
+          this.inputChangesEvent.emit(encodeURIComponent(value));
         })
       )
       .subscribe();
   }
 
-  clearQuery() {
-    this.inputForm.reset();
+  clearInput() {
+    this.inputForm.reset('', { onlySelf: true, emitEvent: false })
   }
 
-  ngOnDestroy() {   
+  ngOnDestroy() {
     this.inputChangeSubscription.unsubscribe();
   }
 
