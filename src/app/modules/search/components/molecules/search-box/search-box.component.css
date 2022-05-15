@@ -1,5 +1,12 @@
 .search-box-container {
     width: 30vw;
+    justify-items: center;
+}
+
+.error {
+    padding: 0 20px 0 20px;
+    text-align: center;
+    font-size: 16px;
 }
 
 @media (max-width: 600px) {
@@ -8,5 +15,6 @@
         display: grid;
 
         justify-content: center;
+
     }
 }
