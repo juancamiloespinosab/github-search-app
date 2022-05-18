@@ -6,17 +6,6 @@ let unavailableItems = [
     { startPx: 60, endPx: 70 },
 ]
 
-// let unavailableItems = [
-//     { startPx: 10, endPx: 30 },
-//     { startPx: 55, endPx: 65 },
-//     { startPx: 35, endPx: 50 },
-//     { startPx: 1, endPx: 9 },
-//     { startPx: 90, endPx: 100 },
-//     { startPx: 20, endPx: 40 },
-//     { startPx: 75, endPx: 90 },
-//     { startPx: 60, endPx: 70 },
-// ]
-
 const mergeOverlappingItems = (arrayItems) => {
 
     let orderedArray = arrayItems.sort((a, b) => a.startPx - b.startPx); // Ordenar array original por el campo "startPx" de menor a mayor
@@ -45,4 +34,28 @@ const mergeOverlappingItems = (arrayItems) => {
     return mergeOverlappingItems([mergedItem, ...orderedArray])
 }
 
-console.log('Resultado: ', mergeOverlappingItems(unavailableItems));
+console.log('Resultado v1: ', mergeOverlappingItems(unavailableItems));
+
+
+
+/* ================================ REDUCER VERSION ============================== */
+
+const mergeOverlappingItemsV2 = (array) => {
+
+    const orderedArray = array.sort((a, b) => a.startPx - b.startPx)
+    let resultArray = [];
+
+    const reduceArray = orderedArray.reduce((acc, current) => {
+        if (acc.endPx >= current.startPx) {
+            return { startPx: acc.startPx, endPx: Math.max(acc.endPx, current.endPx) }
+        } else {
+            resultArray.push(acc)
+            return current
+        }
+    })
+
+    resultArray.push(reduceArray)
+    return resultArray
+}
+
+console.log('Resultado v2: ', mergeOverlappingItemsV2(unavailableItems))
