@@ -34,27 +34,28 @@ const mergeOverlappingItems = (arrayItems) => {
     return mergeOverlappingItems([mergedItem, ...orderedArray])
 }
 
-console.log('Resultado v1: ', mergeOverlappingItems(unavailableItems));
+// console.log('Resultado v1: ', mergeOverlappingItems(unavailableItems));
 
 
 
 /* ================================ REDUCER VERSION ============================== */
 
 const mergeOverlappingItemsV2 = (array) => {
-
-    const orderedArray = array.sort((a, b) => a.startPx - b.startPx)
     let resultArray = [];
 
-    const reduceArray = orderedArray.reduce((acc, current) => {
-        if (acc.endPx >= current.startPx) {
-            return { startPx: acc.startPx, endPx: Math.max(acc.endPx, current.endPx) }
-        } else {
-            resultArray.push(acc)
-            return current
-        }
-    })
+    const lastItem = array
+        .sort((a, b) => a.startPx - b.startPx)
+        .reduce((acc, current) => {
+            if (acc.endPx >= current.startPx) {
+                acc.endPx = Math.max(acc.endPx, current.endPx)
+                return acc;
+            } else {
+                resultArray.push(acc)
+                return current;
+            }
+        })
 
-    resultArray.push(reduceArray)
+    resultArray.push(lastItem)
     return resultArray
 }
 
